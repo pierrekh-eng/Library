@@ -31,12 +31,11 @@ class BookController extends Controller
     public function bookByCategoryId(Request $request){
         $category_id=$request->category_id;
         $book=Book::where('category_id',$category_id)->get();
-        return $book;
-        /*return[
+        return[
             'success'=>true,
             'message'=>'book by category id successfully',
             'data'=>$book
-        ];*/
+        ];
     }
 
     /**
