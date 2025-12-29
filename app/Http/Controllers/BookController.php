@@ -87,7 +87,7 @@ class BookController extends Controller
         return[
             'success'=>true,
             'message'=>'book deleted successfully',
-            'data'=>$book
+            'data'=>null
         ];
     }
 }

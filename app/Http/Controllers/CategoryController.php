@@ -63,7 +63,7 @@ class CategoryController extends Controller
         return[
             'success'=>true,
             'message'=>'category deleted successfully',
-            'data'=>$category
+            'data'=>null
         ];
     }
 }

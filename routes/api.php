@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
@@ -19,3 +20,6 @@ Route::delete('/delete-category/{id}',[CategoryController::class,'destroy']);
 Route::apiResource('/book',BookController::class);
 Route::get('/book-by-title',[BookController::class,'bookByTitle']);
 Route::get('/book-by-category-id',[BookController::class,'bookByCategoryId']);
+
+                    /*Author api resource route */
+Route::apiResource('/authors',AuthorController::class);
