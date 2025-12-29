@@ -19,5 +19,7 @@ class CategorySeeder extends Seeder
             ['name'=>'Farming'],
         ];
         Category::insert($categories);
+                /*with factory */
+        // Category::factory(15)->create();
     }
 }
