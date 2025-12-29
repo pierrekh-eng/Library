@@ -18,8 +18,11 @@ class CategoryController extends Controller
 
     function store(Request $request){
         /*first way*/
+        $validated=$request->validate([
+            'name'=>'required|unique:categories,name|max:50'
+        ]);
         $category = new Category();
-        $category->name = $request->name;
+        $category->name = $validated['name'];
 
         $category->save();
         return[
@@ -34,8 +37,11 @@ class CategoryController extends Controller
         */
     }
     function update(Request $request,$id){
+        $validated=$request->validate([
+            'name'=>"required|unique:categories,name,$id|max:50"
+        ]);
         $category=Category::find($id);
-        $category->name=$request->name;
+        $category->name=$validated['name'];
         $category->save();
         return[
             'success'=>true,
