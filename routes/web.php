@@ -54,3 +54,13 @@ Route::get('1-m-create', function () {
         'books' => Book::all()
     ];
 });
+                /*env-config */
+                
+Route::get('env' , function(){
+    // return env('APP_NAME');
+    return env('APP_NAME' , 'Not Found');
+});
+
+Route::get('config' , function(){
+    return config('app.name');
+});
