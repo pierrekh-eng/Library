@@ -12,4 +12,8 @@ class Book extends Model
     protected $primaryKey = 'ISBN';
     public $incrementing = false;
     protected $fillable = ["ISBN","title","price","mortgage","category_id"];
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

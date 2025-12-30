@@ -59,7 +59,13 @@ class CategoryController extends Controller
         ];
     }
     function destroy($id){
-        $category=Category::find($id)->delete();
+        $category=Category::find($id);
+        if($category->books->count())
+            return[
+                'success'=>false,
+                'message'=>'cant delete category has books'
+            ];
+        $category->delete();
         return[
             'success'=>true,
             'message'=>'category deleted successfully',
