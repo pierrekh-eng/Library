@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "1b55eb2a-f3db-4263-9e2b-98544633fcf5",
+		"name": "library2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50167526",
+		"_collection_link": "https://pierrekhouryp536-6001657.postman.co/workspace/Pierre-fadi-(khoury)'s-Workspac~7f5fa82b-4f6e-4cba-8533-747215cfb00f/collection/50167526-1b55eb2a-f3db-4263-9e2b-98544633fcf5?action=share&source=collection_link&creator=50167526"
+	},
+	"item": [
+		{
+			"name": "Categories Folder",
+			"item": [
+				{
+					"name": "category-all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"cooking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/update-category/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"update-category",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/delete-category/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"delete-category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "category-show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/show-category/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"show-category",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books Folder",
+			"item": [
+				{
+					"name": "book-all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/book",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ISBN\":\"1112223334449\",\r\n    \"title\":\"basketball\",\r\n    \"price\":7.22,\r\n    \"mortgage\":3.12,\r\n    \"category_id\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/book",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ISBN\":\"1112223334445\",\r\n    \"title\":\"How to live\",\r\n    \"price\":9.22,\r\n    \"mortgage\":2,\r\n    \"category_id\":1\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/book/1112223334445",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"1112223334445"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 6.33\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/book/1112223334445",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"1112223334445"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/book/1112223334445",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book",
+								"1112223334445"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-by-title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/book-by-title?title=How to live",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book-by-title"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "How to live"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book-by-categoryID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/book-by-category-id?category_id=4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book-by-category-id"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author Folder",
+			"item": [
+				{
+					"name": "author-all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"fatima zuhra\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/authors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"pierre khoury\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/authors/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/authors/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "author-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/authors/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"authors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book_Customer Folder",
+			"item": [
+				{
+					"name": "store and update book-customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_ISBN\" : \"1112223334445\",\r\n    \"customer_id\":1,\r\n    \"rate\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/book-customer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book-customer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/book-customer/1112223334445/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"book-customer",
+								"1112223334445",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
