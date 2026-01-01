@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -63,4 +64,28 @@ Route::get('env' , function(){
 
 Route::get('config' , function(){
     return config('app.name');
+});
+
+                /*book_author */
+Route::get('m-m',function(){
+    $book = Book::find('1112223334447');
+    return $book->authors;
+});
+Route::get('m-m-1',function(){
+    $author = Author::find(3);
+    return $author->books;
+});
+Route::get('m-m-attach',function(){
+    // Book::find('1112223334445')->authors()->attach(1);
+    // Book::find('1112223334446')->authors()->attach(1);
+    // $author=Author::find(8);
+    // Book::find(1112223334445)->authors()->attach($author);
+    $author=Author::find([3,7]);
+    Book::find('1112223334447')->authors()->attach($author);
+    return redirect('m-m');
+});
+Route::get('m-m-detach',function(){
+    $author=Author::find(3);
+    Book::find('1112223334447')->authors()->detach($author);
+    return redirect('m-m-1');
 });
