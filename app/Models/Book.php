@@ -20,4 +20,10 @@ class Book extends Model
     public function authors(){
         return $this->belongsToMany(Author::class);
     }
+    public function customers(){
+        return $this->belongsToMany(Customer::class)
+        ->using(BookCustomer::class)
+        ->withPivot('rate')
+        ->withTimestamps();
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookCustomerController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,7 @@ Route::get('/book-by-category-id',[BookController::class,'bookByCategoryId']);
 
                     /*Author api resource route */
 Route::apiResource('/authors',AuthorController::class);
+
+                    /*Rating */
+Route::post('/book-customer', [BookCustomerController::class, 'store']);
+Route::delete('/book-customer/{bookISBN}/{customerId}', [BookCustomerController::class, 'destroy']);
