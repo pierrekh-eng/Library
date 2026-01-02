@@ -26,7 +26,8 @@ class StoreBookRequest extends FormRequest
             'title' => 'required|string|max:50',
             'price' => 'required|numeric|min:0|max:99.99', 
             'mortgage' => 'required|numeric|min:0|max:999.99', 
-            'authorship_date ' => 'nullable|date',
+            'authorship_date' => 'nullable|date',
+            'cover'=>'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'category_id'=>'required|exists:categories,id'
         ];
     }

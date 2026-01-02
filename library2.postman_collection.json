@@ -192,13 +192,39 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"ISBN\":\"1112223334449\",\r\n    \"title\":\"basketball\",\r\n    \"price\":7.22,\r\n    \"mortgage\":3.12,\r\n    \"category_id\":4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ISBN",
+									"value": "1112223334441",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "physics",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10.22",
+									"type": "text"
+								},
+								{
+									"key": "mortgage",
+									"value": "7.65",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/Pictures/Saved Pictures/download.png"
+								},
+								{
+									"key": "category_id",
+									"value": "7",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{url}}/api/book",
@@ -248,7 +274,7 @@
 				{
 					"name": "book-update",
 					"request": {
-						"method": "PATCH",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
@@ -257,23 +283,29 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"price\": 6.33\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/Lenovo/Pictures/Saved Pictures/14a58291-0db4-4f86-99d0-15f6cc770ebd.jpg"
+								},
+								{
+									"key": "_method",
+									"value": "patch",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
-							"raw": "{{url}}/api/book/1112223334445",
+							"raw": "{{url}}/api/book/1112223334441",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"book",
-								"1112223334445"
+								"1112223334441"
 							]
 						}
 					},
@@ -291,14 +323,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/book/1112223334445",
+							"raw": "{{url}}/api/book/1112223334441",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"book",
-								"1112223334445"
+								"1112223334441"
 							]
 						}
 					},

@@ -120,3 +120,12 @@ Route::get('pivot-detach', function () {
 
     return redirect('m-m-2');
 });
+
+                        /*Storage */
+Route::get('storage-path',function(){
+    // return storage_path('public');
+    return storage_path('app\private');
+});
+Route::get('public-path',function(){
+    return public_path();
+});

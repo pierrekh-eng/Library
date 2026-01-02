@@ -6,6 +6,7 @@ use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -46,6 +47,15 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         $book=Book::create($request->validated());
+
+        if($request->hasFile('cover')){
+            $file=$request->file('cover');
+            $file_name="$book->ISBN." . $file->extension();
+            Storage::putFileAs('book-image',$file,$file_name);
+            $book->cover='book-image/'.$file_name;
+            $book->save();
+        }
+
         return[
             'success'=>true,
             'message'=>'book added successfully',
@@ -71,6 +81,16 @@ class BookController extends Controller
     public function update(UpdateBookRequest $request, Book $book)
     {
         $book->update($request->validated());
+        if($request->hasFile('cover')){
+            if($book->cover){
+                Storage::delete($book->cover);
+            }
+            $file=$request->file('cover');
+            $file_name="$book->ISBN." . $file->extension();
+            Storage::putFileAs('book-image',$file,$file_name);
+            $book->cover="book-image/".$file_name;
+            $book->save();
+        }
         return[
             'success'=>true,
             'message'=>'book updated successfully',
@@ -83,6 +103,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if ($book->cover)
+            Storage::delete($book->cover);
         $book->delete();
         return[
             'success'=>true,

@@ -26,7 +26,8 @@ class UpdateBookRequest extends FormRequest
             'title' => 'sometimes|string|max:50',
             'price' => 'sometimes|numeric|min:0|max:99.99',
             'mortgage' => 'sometimes|numeric|min:0|max:999.99',
-            'authorship_date ' => 'nullable|date',
+            'authorship_date' => 'nullable|date',
+            'cover'=>'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'category_id'=>'sometimes|required|exists:categories,id'
         ];
     }
