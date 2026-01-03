@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Http\Resources\BookResource;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,11 +16,11 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books=Book::all();
+        $books=Book::with('category')->get();
         return[
             'success'=>true,
             'message'=>'all books',
-            'data'=>$books
+            'data'=>BookResource::collection($books)
         ];
     }
     public function bookByTitle(Request $request){
@@ -71,7 +72,7 @@ class BookController extends Controller
         return[
             'success'=>true,
             'message'=>'book showed successfully',
-            'data'=>$book
+            'data'=>new BookResource($book)
         ];
     }
 
