@@ -43,6 +43,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|FgcmC36FRPBGmPN9gGJ0otWC6SjMjaaPtYJ0xkgE3b086373",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -113,14 +118,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/delete-category/2",
+							"raw": "{{url}}/api/delete-category/8",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"delete-category",
-								"2"
+								"8"
 							]
 						}
 					},
@@ -129,6 +134,16 @@
 				{
 					"name": "category-show",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|FgcmC36FRPBGmPN9gGJ0otWC6SjMjaaPtYJ0xkgE3b086373",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -138,18 +153,45 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/show-category/3",
+							"raw": "{{url}}/api/show-category/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"show-category",
-								"3"
+								"1"
 							]
 						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -258,14 +300,14 @@
 							"raw": "{\r\n    \"ISBN\":\"1112223334445\",\r\n    \"title\":\"How to live\",\r\n    \"price\":9.22,\r\n    \"mortgage\":2,\r\n    \"category_id\":1\r\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/book/1112223334445",
+							"raw": "{{url}}/api/book/1112223334746",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"book",
-								"1112223334445"
+								"1112223334746"
 							]
 						}
 					},
@@ -395,6 +437,40 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "1|FgcmC36FRPBGmPN9gGJ0otWC6SjMjaaPtYJ0xkgE3b086373",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -601,6 +677,151 @@
 								"book-customer",
 								"1112223334445",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Folder",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"pierre\",\r\n    \"email\":\"pierrekhouryp536@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"pierrekhouryp536@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|FgcmC36FRPBGmPN9gGJ0otWC6SjMjaaPtYJ0xkgE3b086373",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|BxAEiFkVFH7DHILu6RhmuWaYzGxEdxoBmNaRAQyK868dd501",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/current-user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"current-user"
 							]
 						}
 					},
