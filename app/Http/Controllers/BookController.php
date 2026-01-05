@@ -14,9 +14,15 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books=Book::with('category')->get();
+        $orderBy=$request->orderBy;
+        $dir=$request->dir??'asc';
+        $books=Book::with('category')
+        ->when($orderBy,function($q) use($orderBy,$dir){
+            return $q->orderBy($orderBy,$dir);
+        })
+        ->get();
         return[
             'success'=>true,
             'message'=>'all books',
